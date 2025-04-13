@@ -1,40 +1,19 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ##**Building a Retrieval Augmented Generation (RAG) Chatbot**
+# ## **Building a Retrieval Augmented Generation (RAG) Chatbot**
 # 
 # Using Gemini, LangChain, and ChromaDB
 # 
 # This notebook will guide you through implementing the backend components of a RAG chatbot system.
 
-# ##Setup and Prerequisites
-# 
+# ## Setup and Prerequisites
 # First, let's install the necessary libraries.
-
-# In[ ]:
-
 
 # Install required packages
 # pip install langchain langchain-google-genai langchain_community pypdf chromadb sentence-transformers
 
 # pip install google-generativeai pdfplumber 
-
-
-# Next, let's import all required libraries:
-
-# In[ ]:
-
-
-# get_ipython().system('pip install streamlit')
-
-
-# # In[ ]:
-
-
-# get_ipython().system('pip install pyngrok')
-
-
-# In[ ]:
 
 
 import os
@@ -46,23 +25,10 @@ from langchain_community.vectorstores import Chroma
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
-
-
-# In[ ]:
-
-
-# from google.colab import userdata
-userdata = {"GEMINI_API_KEY": "your_api_key_here"}  # Ensure userdata is defined
-
-os.environ["GOOGLE_API_KEY"] = userdata.get("GEMINI_API_KEY")
-
-
-# In[ ]:
-
-
 import streamlit as st
-import os
 import tempfile
+
+# Helper functions to interact with the backend
 from session_4_rag_backend import (
     setup_api_key,
     upload_pdf,
@@ -318,42 +284,3 @@ def reset_conversation():
 
 if __name__ == "__main__":
     main()
-
-
-# In[ ]:
-
-
-import subprocess
-
-# Run Streamlit as a subprocess
-subprocess.run(['streamlit', 'run', 'rag_streamlit.py', '--server.port=8989'], stdout=open('./logs.txt', 'w'), stderr=subprocess.STDOUT)
-
-
-
-# In[ ]:
-
-
-from pyngrok import ngrok
-from google.colab import userdata
-
-# Terminate open tunnels if exist
-ngrok.kill()
-
-ngrok.set_auth_token(userdata.get('NGROK_API_KEY'))
-
-# Open an HTTPs tunnel on port XXXX which you get from your `logs.txt` file
-ngrok_tunnel = ngrok.connect(8989)
-print("Streamlit App:", ngrok_tunnel.public_url)
-
-
-# In[ ]:
-
-
-ngrok.kill()
-
-
-# In[ ]:
-
-
-get_ipython().system('ps -ef | grep streamlit')
-
