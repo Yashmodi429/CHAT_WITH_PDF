@@ -5,6 +5,6 @@ langchain
 langchain-google-genai
 langchain-community
 chromadb
-pypdf2
+
 pyngrok==5.1.0
 
