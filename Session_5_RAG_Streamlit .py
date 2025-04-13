@@ -323,7 +323,11 @@ if __name__ == "__main__":
 # In[ ]:
 
 
-get_ipython().system('streamlit run rag_streamlit.py --server.port=8989 &>./logs.txt &')
+import subprocess
+
+# Run Streamlit as a subprocess
+subprocess.run(['streamlit', 'run', 'rag_streamlit.py', '--server.port=8989'], stdout=open('./logs.txt', 'w'), stderr=subprocess.STDOUT)
+
 
 
 # In[ ]:
