@@ -52,6 +52,7 @@ from langchain.memory import ConversationBufferMemory
 
 
 # from google.colab import userdata
+userdata = {"GEMINI_API_KEY": "your_api_key_here"}  # Ensure userdata is defined
 
 os.environ["GOOGLE_API_KEY"] = userdata.get("GEMINI_API_KEY")
 
