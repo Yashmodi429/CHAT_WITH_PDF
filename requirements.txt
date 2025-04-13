@@ -1,4 +1,7 @@
-pip install langchain langchain-google-genai langchain_community pypdf chromadb sentence-transformers -q
-pip install google-generativeai pdfplumber -q
-pip install streamlit
-pip install pyngrok
+streamlit
+pdfplumber
+google-generativeai
+langchain
+langchain-google-genai
+langchain-community
+chromadb
