@@ -25,13 +25,13 @@
 # In[ ]:
 
 
-get_ipython().system('pip install streamlit')
+# get_ipython().system('pip install streamlit')
 
 
-# In[ ]:
+# # In[ ]:
 
 
-get_ipython().system('pip install pyngrok')
+# get_ipython().system('pip install pyngrok')
 
 
 # In[ ]:
